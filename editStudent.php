@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/editStudent.css" />
 </head>
 <body>
     <?php
@@ -34,52 +35,48 @@
         }
     ?>
 
-    <form method="post">
-        <h2>Edit dữ liệu</h2>
+    <h2 id="heading">Edit dữ liệu</h2>
+    <form method="post" id="container">
         <table>
             <tr>
-                <td>Mã sinh viên</td>
+                <td class="name">Mã sinh viên</td>
                 <td>
-                    <input type="text" name="txtID" id="txtID" value="<?php echo $MaSinhVien ?>"/>
+                    <input type="text" name="txtID" id="txtID" class="txtInput" value="<?php echo $MaSinhVien ?>"/>
                 </td>
             </tr>
 
             <tr>
-                <td>Họ vã tên</td>
+                <td class="name">Họ vã tên</td>
                 <td>
-                    <input type="text" name="txtName" id="txtName" value="<?php echo isset($_POST['txtName']) ? $_POST['txtName'] : $TenSinhVien ?>"/>
+                    <input type="text" name="txtName" id="txtName" class="txtInput" value="<?php echo isset($_POST['txtName']) ? $_POST['txtName'] : $TenSinhVien ?>"/>
                 </td>
             </tr>
 
             <tr>
-                <td>Ngày Sinh</td>
+                <td class="name">Ngày Sinh</td>
                 <td>
-                    <input type="text" name="txtNgaySinh" id="txtNgaySinh" value="<?php echo isset($_POST['txtNgaySinh']) ? $_POST['txtNgaySinh'] : $NgaySinh ?>"/>
+                    <input type="text" name="txtNgaySinh" id="txtNgaySinh" class="txtInput" value="<?php echo isset($_POST['txtNgaySinh']) ? $_POST['txtNgaySinh'] : $NgaySinh ?>"/>
                 </td>
             </tr>
 
             <tr>
-                <td>Quê quán</td>
+                <td class="name">Quê quán</td>
                 <td>
-                    <textarea name="txtAddress"><?php echo isset($_POST['txtAddress']) ? $_POST['txtAddress'] : $QueQuan ?></textarea>
+                    <textarea name="txtAddress"class="txtInput" ><?php echo isset($_POST['txtAddress']) ? $_POST['txtAddress'] : $QueQuan ?></textarea>
                 </td>
             </tr>
 
             <tr>
-                <td>Email</td>
+                <td class="name">Email</td>
                 <td>
-                    <input type="text" name="txtEmail" id="txtEmail" value="<?php echo isset($_POST['txtEmail']) ? $_POST['txtEmail'] : $Email ?>"/>
-                </td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td>
-                    <button type="submit" id="btnSave" name="btnSave">Ghi giữ liệu</button>
-                    <a href="index.php">Quay lại</a>
+                    <input type="text" name="txtEmail" id="txtEmail" class="txtInput" value="<?php echo isset($_POST['txtEmail']) ? $_POST['txtEmail'] : $Email ?>"/>
                 </td>
             </tr>
         </table>
+        <div>
+            <button type="submit" id="btnSave" name="btnSave">Ghi giữ liệu</button>
+            <a href="index.php">Quay lại</a>
+        </div>
     </form>
 
     
