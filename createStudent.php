@@ -5,33 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CreateStudent</title>
+    <link rel="stylesheet" href="./assets/css/createStudent.css" />
+
 </head>
 <body>
-    <form method="post">
-        <h2>Thêm mới dữ liệu</h2>
+    <h2 id="heading">Thêm mới dữ liệu</h2>  
+    <form method="post" id="container">
         <table>
             <tr>
-                <td>Mã sinh viên</td>
+                <td  class="name">Mã sinh viên</td>
                 <td>
-                    <input type="text" name="txtID" id="txtID"/>
+                    <input type="text" name="txtID" id="txtID" class="txtInput"/>
                 </td>
             </tr>
 
             <tr>
-                <td>Họ vã tên</td>
+                <td class="name">Họ vã tên</td>
                 <td>
-                    <input type="text" name="txtName" id="txtName"/>
+                    <input type="text" name="txtName" id="txtName" class="txtInput"/>
                 </td>
             </tr>
 
             <tr>
-                <td></td>
+                <td class="name">Ngày Sinh</td>
                 <td>
-                    <button type="submit" id="btnSave" name="btnSave">Ghi giữ liệu</button>
-                    <a href="index.php">Quay lại</a>
+                    <input type="text" name="txtNgaySinh" id="txtNgaySinh" class="txtInput"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="name">Quê Quán</td>
+                <td>
+                    <input type="text" name="txtAddress" id="txtAddress" class="txtInput"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="name">Email</td>
+                <td>
+                    <input type="text" name="txtEmail" id="txtEmail" class="txtInput"/>
                 </td>
             </tr>
         </table>
+        <div>
+            <button type="submit" id="btnSave" name="btnSave">Ghi giữ liệu</button>
+            <a href="index.php">Quay lại</a>
+        </div>
     </form>
 
     <?php
@@ -42,7 +61,10 @@
             } else {
                 $ID = $_POST['txtID'];
                 $name = $_POST['txtName'];
-                $query = "INSERT INTO sinhvien(MaSinhVien, TenSinhVien) VALUES ('$ID', '$name')";
+                $NgaySinh = $_POST['txtNgaySinh'];
+                $QueQuan = $_POST['txtAddress'];
+                $Email = $_POST['txtEmail'];
+                $query = "INSERT INTO sinhvien(MaSinhVien, TenSinhVien, QueQuan, NgaySinh, Email) VALUES ('$ID', '$name', '$QueQuan','$NgaySinh', '$Email')";
 
                 $result = mysqli_query($conn, $query);
                 if ($result == true) {
